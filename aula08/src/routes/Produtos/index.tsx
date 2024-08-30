@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { listaProdutos } from "../../listaProdutos";
 import { BsBoxSeam as Editar} from "react-icons/bs";
 import styled from "styled-components";
+import { ImgProduto, ImgProdutos } from "../../style/styled";
 
 const MinhaTabela = styled.table`
   width: 100%;
@@ -64,7 +65,7 @@ export default function Produtos(){
                 <td>R$ {produto.preco}</td>
                 <td>{produto.qtd}</td>
                 <td>{produto.descricao}</td>
-                <td><img src={produto.imagem} alt={produto.nome} /></td>
+                <td><ImgProdutos src={produto.imagem} alt={produto.nome} /></td>
                 <td><Link to={`/editar/produtos/${produto.id}`}><Editar /></Link></td>
               </tr>
             ))}
