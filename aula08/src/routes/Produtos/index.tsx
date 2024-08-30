@@ -1,39 +1,9 @@
 import { Link } from "react-router-dom";
 import { listaProduto } from "../../listaProdutos";
 import { MdModeEdit } from "react-icons/md";
-import styled from "styled-components";
+import { ImgProdutos } from "../../style/styled";
+import { MinhaTabela } from "../../style/styled";
 
-const MinhaTabela = styled.table`
-  width: 100%;
-  border-collapse: collapse;
-  margin: 20px 0;
-  font-size: 32px;
-  text-align: center;
-
-  & thead {
-    background-color: #009879;
-    color: #a40d0d;
-    & th {
-      padding: 12px 15px;
-      border: 1px solid #dddddd;
-    }
-  }
-
-  &
-  tr {
-    &:nth-child(even){
-      background-color: #c0bebe;
-    }
-    &:nth-child(odd){
-      background-color: #ffffff;
-    }
-  }
-  &
-  td{
-    padding: 12px 15px;
-    border: 2px solid #818080;
-  }
-`;
 
 export default function Produtos() {
   //MUDANDO O TÍTULO DA PÁGINA!!!
@@ -61,7 +31,7 @@ export default function Produtos() {
               <td>{produto.qtd}</td>
               <td>{produto.descricao}</td>
               <td>
-                <img src={produto.imagem} alt={produto.nome} />
+                <ImgProdutos src={produto.imagem} alt={produto.nome} />
               </td>
               <td>
                 <Link to={`/editar/produtos/${produto.id}`}>
