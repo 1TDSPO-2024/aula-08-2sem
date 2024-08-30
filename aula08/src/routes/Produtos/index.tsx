@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { listaProduto } from "../../listaProdutos";
 import { MdModeEdit } from "react-icons/md";
 
-
 export default function Produtos(){
 
       //MUDANDO O TÍTULO DA PÁGINA!!!
