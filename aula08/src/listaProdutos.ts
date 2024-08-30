@@ -1,11 +1,5 @@
-type Lista = {
-    id: number;
-    nome: string;
-    preco: number;
-    qtd: number
-    descricao: string;
-    imagem: string;
-}
+import { Lista } from "./types";
+
 
 export let listaProduto: Lista[] = [
     { id: 1, nome: "Mouse", preco: 40.45, qtd: 10, descricao: "Mouse Optico", imagem: "mouse.jpg" },
