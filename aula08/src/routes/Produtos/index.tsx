@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 import { listaProduto } from "../../listaProdutos";
+import { MdModeEdit } from "react-icons/md";
 
 
 export default function Produtos(){
@@ -12,7 +14,6 @@ export default function Produtos(){
         <table>
           <thead>
             <tr>
-              <th>Id</th>
               <th>Nome</th>
               <th>Preço</th>
               <th>Quantidade</th>
@@ -29,7 +30,7 @@ export default function Produtos(){
                 <td>{produto.qtd}</td>
                 <td>{produto.descricao}</td>
                 <td><img src={produto.imagem} alt={produto.nome} /></td>
-                <td><button>Editar</button></td>
+                <td><Link to={`/editar/produtos/${produto.id}`}><MdModeEdit /></Link></td>
               </tr>
             ))}
           </tbody>
