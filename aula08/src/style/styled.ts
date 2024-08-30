@@ -60,3 +60,43 @@ export const MenuLink = styled.a`
   padding: 10px 20px;
   display: block;
 `
+export const ImgProdutos = styled.img`
+  width:40%;
+  display:block;
+  margin:0 auto;
+`
+
+export const MinhaTabela = styled.table`
+  width:100%;
+  border-collapse: collapse;
+  margin:20px 0;
+  font-size:32px;
+  text-align:center;
+
+  &
+  thead{
+    background-color: #009879;
+    color: #a40d0d;
+    &
+    th{
+      padding: 12px 15px;
+      border: 1px solid #dddddd;
+    }
+  }
+
+  &
+  tr{
+    &:nth-child(even){
+      background-color:#c0bebe;
+    }
+    &:nth-child(odd){
+      background-color:#ffffff;
+    }
+  }
+
+  & td{
+    padding: 12px 15px;
+    border: 2px solid #818080;
+  }
+
+`
