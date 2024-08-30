@@ -26,7 +26,7 @@ export default function Produtos(){
             {listaProdutos.map((produto) => (
               <tr key={produto.id}>
                 <td>{produto.nome}</td>
-                <td>{produto.preco}</td>
+                <td>R$ {produto.preco}</td>
                 <td>{produto.qtd}</td>
                 <td>{produto.descricao}</td>
                 <td><img src={produto.imagem} alt={produto.nome} /></td>
