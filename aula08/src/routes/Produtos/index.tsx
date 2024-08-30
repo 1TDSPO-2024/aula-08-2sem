@@ -1,46 +1,84 @@
 import { Link } from "react-router-dom";
 import { listaProduto } from "../../listaProdutos";
 import { MdModeEdit } from "react-icons/md";
+import styled from "styled-components";
 
-export default function Produtos(){
+const MinhaTabela = styled.table`
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 32px;
+  text-align: center;
 
-      //MUDANDO O TÍTULO DA PÁGINA!!!
-      document.title = "PRODUTOS";
+  & thead {
+    background-color: #009879;
+    color: #a40d0d;
+    & th {
+      padding: 12px 15px;
+      border: 1px solid #dddddd;
+    }
+  }
 
-    return(
-      <div>
-        <h1>Produtos Eletrônicos</h1>
-        <table>
-          <thead>
-            <tr>
-              <th>Nome</th>
-              <th>Preço</th>
-              <th>Quantidade</th>
-              <th>Descrição</th>
-              <th>Imagem</th>
-              <th>Editar</th>
-            </tr>
-          </thead>
-          <tbody>
-            {listaProduto.map((produto)=> (
-              <tr key={produto.id}>
-                <td>{produto.nome}</td>
-                <td>{produto.preco}</td>
-                <td>{produto.qtd}</td>
-                <td>{produto.descricao}</td>
-                <td><img src={produto.imagem} alt={produto.nome} /></td>
-                <td><Link to={`/editar/produtos/${produto.id}`}><MdModeEdit /></Link></td>
-              </tr>
-            ))}
-          </tbody>
-          <tfoot>
-            <tr>
-              <td colSpan={6}>
-                Quantidade de produtos: <span>{listaProduto.length}</span>
+  &
+  tr {
+    &:nth-child(even){
+      background-color: #c0bebe;
+    }
+    &:nth-child(odd){
+      background-color: #ffffff;
+    }
+  }
+  &
+  td{
+    padding: 12px 15px;
+    border: 2px solid #818080;
+  }
+`;
+
+export default function Produtos() {
+  //MUDANDO O TÍTULO DA PÁGINA!!!
+  document.title = "PRODUTOS";
+
+  return (
+    <div>
+      <h1>Produtos Eletrônicos</h1>
+      <MinhaTabela>
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Preço</th>
+            <th>Quantidade</th>
+            <th>Descrição</th>
+            <th>Imagem</th>
+            <th>Editar</th>
+          </tr>
+        </thead>
+        <tbody>
+          {listaProduto.map((produto) => (
+            <tr key={produto.id}>
+              <td>{produto.nome}</td>
+              <td>{produto.preco}</td>
+              <td>{produto.qtd}</td>
+              <td>{produto.descricao}</td>
+              <td>
+                <img src={produto.imagem} alt={produto.nome} />
+              </td>
+              <td>
+                <Link to={`/editar/produtos/${produto.id}`}>
+                  <MdModeEdit />
+                </Link>
               </td>
             </tr>
-          </tfoot>
-        </table>
-      </div>
-    );
-  }
+          ))}
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colSpan={6}>
+              Quantidade de produtos: <span>{listaProduto.length}</span>
+            </td>
+          </tr>
+        </tfoot>
+      </MinhaTabela>
+    </div>
+  );
+}
