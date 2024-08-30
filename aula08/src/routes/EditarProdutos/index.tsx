@@ -1,4 +1,7 @@
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Lista } from "../../types";
+import { listaProdutos } from "../../listaProdutos";
 
 export default function EditarProdutos(){
 
@@ -12,11 +15,30 @@ export default function EditarProdutos(){
       // const{dados} = useParams(), um detalhe aqui é que o useParams() pertence ao react-router e deve ser importado dele
       const {id} = useParams();
 
+      const [produto,setProduto] = useState<Lista>();
+
+      //setProduto(listaProdutos.find((prod)=> prod.id == Number(id)));
+      
+      //Para impedir que o userState fique se reenderizando é necessário o utilizar dentro de uma função e não puramente
+      useEffect(()=> {
+        setProduto(listaProdutos.find((prod)=> prod.id == Number(id)));
+      })
+
+
       return(
       <div>
         <h1>Olá, mundo sou o EditarProdutos!</h1>
         <div>
           <h2>ID: {id}</h2>
+          <div>
+            <label>Nome:{produto?.nome}</label>
+            <p>Preço: R$ {produto?.preco}</p>
+            <p>Descrição: {produto?.qtd}</p>
+            <p>Quantidade: {produto?.descricao}</p>
+            <figure>
+              <img src={produto?.imagem} alt={produto?.nome} />
+            </figure>
+          </div>
         </div>
       </div>
     );
