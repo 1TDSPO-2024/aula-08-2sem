@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 import { listaProdutos } from "../../listaProdutos";
+import { BsBoxSeam as Editar} from "react-icons/bs";
 
 export default function Produtos(){
       //MUDANDO O TÍTULO DA PÁGINA!!!
@@ -26,7 +28,8 @@ export default function Produtos(){
                 <td>{produto.qtd}</td>
                 <td>{produto.descricao}</td>
                 <td><img src={produto.imagem} alt={produto.nome}/></td>
-                <td><button>Editar</button></td>
+                <td> <Link to={`/editar/produtos/${produto.id}`}><Editar/></Link> </td>
+
               </tr>
             ))}
           </tbody>
